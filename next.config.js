@@ -4,13 +4,42 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'signsolutionsoh.com',
+        hostname: 'images.unsplash.com',
       },
       {
         protocol: 'https',
         hostname: 'media.licdn.com',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+  },
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+  // Optimize for production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Headers for security
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+    ]
   },
 }
 

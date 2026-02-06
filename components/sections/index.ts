@@ -1,0 +1,6 @@
+export { Hero } from './Hero'
+export { ServiceCard } from './ServiceCard'
+export { Testimonials } from './Testimonials'
+export { CTA } from './CTA'
+export { ServiceAreas } from './ServiceAreas'
+export { ContactForm } from './ContactForm'
